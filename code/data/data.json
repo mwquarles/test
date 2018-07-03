@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "type": "hero",
+      "logo": "https://test.dubosewebgroup.com//assets/test1/logo.png",
+      "headline": "Growing our community",
+      "subHeadLine": "Learn how we can put your business on the digital map",
+      "nav": [
+        {
+          "content": "home",
+          "url": "/"
+        },
+        {
+          "content": "about",
+          "url": "/about"
+        },
+        {
+          "content": "blog",
+          "url": "/blog"
+        },
+        {
+          "content": "contact",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "img": "https://test.dubosewebgroup.com//assets/test1/computer.svg",
+      "content": "131 Businesses Served"
+    },
+    {
+      "type": "contentBlock",
+      "backgroundColor": "orange",
+      "headline": "South Carolina's Digital Agency",
+      "content": "Posuere sagittis congue ac nostra facilisis egestas placerat tellus velit nam, et habitant ullamcorper praesent augue vehicula etiam cubilia a. Cursus diam purus per arcu nullam justo lectus eget platea at elit, nunc curae cubilia ridiculus metus ac malesuada porta nisl sed."
+    },
+    {
+      "type": "cards",
+      "items": [
+        [
+          {
+            "img": "https://test.dubosewebgroup.com//assets/test1/bright-bulb-design-788855.jpg",
+            "headline": "Leo mi imperdiet",
+            "content": "Vitae semper volutpat leo senectus vulputate eleifend malesuada non vestibulum nam curabitur, maximus ipsum netus porttitor ex curae sed fringilla lacinia nulla, ligula nec pretium cras inceptos vivamus suscipit torquent laoreet fames.",
+            "cta": {
+              "content": "Leo mi imperdiet",
+              "url": "https://test.dubosewebgroup.com//articles/leo-mi-imperdiet"
+            }
+          },
+          {
+            "img": "https://test.dubosewebgroup.com//assets/test1/blank-brainstorming-business-6357.jpg",
+            "headline": "Euismod ante sagittis porta dictum sed",
+            "content": "Sodales rhoncus enim vulputate dui quisque facilisis finibus, eros in lacinia tempor commodo porta volutpat, pulvinar dignissim inceptos montes felis libero.",
+            "cta": {
+              "content": "Euismod ante sagittis porta dictum sed",
+              "url": "https://test.dubosewebgroup.com//articles/euismod-ante-sagittis-porta-dictum-sed"
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "type": "info",
+      "backgroundColor": "gray",
+      "content": "copyright 2018 DuBose Web"
+    }
+  ]
+}

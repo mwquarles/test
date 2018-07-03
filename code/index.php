@@ -16,6 +16,8 @@
 <?php
 
 $url = 'https://test.dubosewebgroup.com/test/1';
+
+//$data = @file_get_contents('./data/data.json');
 $data = @file_get_contents($url);
 $pageContent = json_decode($data);
 $sections = $pageContent->sections;
@@ -40,55 +42,55 @@ $sections = $pageContent->sections;
 </div>
 
 <?php
-    if ($data) {
+if ($data) {
 
-        foreach ($sections as $sections) {
+    foreach ($sections as $sections) {
 
-            echo '<div id="' . $sections->type . '">';
+        echo '<div id="' . $sections->type . '">';
 
-            if ($sections->type == "hero") {
+        if ($sections->type == "hero") {
 
-                echo '<h1 id="heroHeader">' . $sections->headline . '</h1>' .
-                    '<h3 id="heroSubHeader">' . $sections->subHeadLine . '</h3>' .
-                    '<button>Let\'s Get Started &#9658;</button></div>';
+            echo '<h1 id="heroHeader">' . $sections->headline . '</h1>' .
+                '<h3 id="heroSubHeader">' . $sections->subHeadLine . '</h3>' .
+                '<button>Let\'s Get Started &#9658;</button></div>';
 
-            } else if ($sections->type == "stats") {
+        } else if ($sections->type == "stats") {
 
-                echo '<img src="' . $sections->img . '">' .
-                    '<span>' . $sections->content . '</span></div>';
+            echo '<img src="' . $sections->img . '">' .
+                '<span>' . $sections->content . '</span></div>';
 
-            } else if ($sections->type == "contentBlock") {
+        } else if ($sections->type == "contentBlock") {
 
-                echo '<h1>' . $sections->headline . '</h1>' .
-                    '<p>' . $sections->content . '</p>';
+            echo '<h1>' . $sections->headline . '</h1>' .
+                '<p>' . $sections->content . '</p>';
 
-            } else if ($sections->type == "cards") {
+        } else if ($sections->type == "cards") {
 
-                $cards = $sections->items[0];
+            $cards = $sections->items[0];
 
-                foreach ($cards as $cards) {
+            foreach ($cards as $cards) {
 
-                    echo '<div class=card>' .
-                        '<img src="' . $cards->img . '">' .
-                        '<h3>' . $cards->headline . '</h3>' .
-                        '<p>' . $cards->content . '</p>' .
-                        '<button><a href="' . $cards->cta->url . '">' . $cards->cta->content . '</a></button>' .
-                        '</div>';
-                }
-            } else if ($sections->type == "info") {
-
-                echo '<footer><span>' . $sections->content . '</span></footer>';
-
+                echo '<div class=card>' .
+                    '<img src="' . $cards->img . '">' .
+                    '<h3>' . $cards->headline . '</h3>' .
+                    '<p>' . $cards->content . '</p>' .
+                    '<button><a href="' . $cards->cta->url . '">' . $cards->cta->content . '</a></button>' .
+                    '</div>';
             }
+        } else if ($sections->type == "info") {
 
-            echo '</div>';
+            echo '<footer><span>' . $sections->content . '</span></footer>';
 
         }
-    } else {
 
-        echo '<span class="error">Something went wrong. Please <a href="#" onclick="window.location.reload(true);">Try Again</a></span>';
+        echo '</div>';
 
     }
+} else {
+
+    echo '<span class="error">Something went wrong. Please <a href="#" onclick="window.location.reload(true);">Try Again</a></span>';
+
+}
 ?>
 
 </body>
