@@ -148,3 +148,11 @@ footer {
     color: white;
     text-decoration: none;
 }
+
+.error {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+}
