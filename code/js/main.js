@@ -28,7 +28,7 @@ fetch('https://test.dubosewebgroup.com/test/1').then(function(response) {
 
                     html += "<div id=\"contentBlock\">" +
                             "<h1>" + section.headline + "</h1>" +
-                            "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis eius incidunt quod rem veritatis. Accusantium libero molestiae temporibus! Corporis cupiditate dicta eius ipsum nemo nisi quam quas quia rem.</p></div>";
+                            "<p>" + section.content + "</p></div>";
 
                 } else if (section.type == "cards") {
 
@@ -37,8 +37,6 @@ fetch('https://test.dubosewebgroup.com/test/1').then(function(response) {
                     for (j = 0; j < section.items[0].length; j++) {
 
                         var card = section.items[0][j];
-
-                        console.log(card);
 
                         html += "<div class=\"card\">" +
                                 "<img src=\"" + card.img + "\">" +
@@ -58,7 +56,6 @@ fetch('https://test.dubosewebgroup.com/test/1').then(function(response) {
             pageContent.innerHTML = html;
         });
     } else if (response.status == 500) {
-        pageContent.innerHTML = "<p>Error 500</p>" +
-                                "<a href=\"#\" onclick=\"window.location.reload(true);\">Try Again </a>";
+        pageContent.innerHTML = "<p>Page content could not be loaded right now. Please <a href=\"#\" onclick=\"window.location.reload(true);\">Try Again </a></p>";
     }
 });
