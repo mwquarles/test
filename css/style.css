@@ -20,6 +20,9 @@ footer {
     background-color: #2D5765;
     padding: 1em;
     height: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #navBar img {
@@ -34,8 +37,8 @@ footer {
 
 #navItems li {
     float: left;
-    margin-left: 1em;
     font-size: .8em;
+    margin: 0 1em;
 }
 
 #navItems a {
@@ -103,18 +106,18 @@ footer {
 
 #cards {
     background-color: #E0E0E0;
-    padding: 2em 2em 0 2em;
+    padding: 2em 0 0 2em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .card {
     width: calc(33% - 1.5em);
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: white;
-    margin-bottom: 2em;
+    margin: 0 1.5em 2em 0;
 }
 
 .card img {
@@ -137,7 +140,11 @@ footer {
     width: 60%;
     background-color: #CB652F;
     border: none;
-    color: white;
     padding: 1em 1.5em;
-    font-size: .7em;
+}
+
+.card button a {
+    font-size: .8em;
+    color: white;
+    text-decoration: none;
 }

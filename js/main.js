@@ -1,20 +1,64 @@
-var wrapper = document.getElementById("wrapper");
-var logo = document.getElementById("logo");
-var navItems = document.getElementById("navItems");
+var pageContent = document.getElementById("pageContent");
 var html = "";
 
 fetch('https://test.dubosewebgroup.com/test/1').then(function(response) {
-    response.json().then(function(json) {
 
-        logo.innerHTML = "<img src=''";
+    console.log(response.status);
+    if (response.status == 200) {
 
-        var header= document.getElementById("header");
+        response.json().then(function(json) {
+            console.log(json);
+            for (i = 0; i < json.sections.length; i++) {
 
-        for (i = 0; i < json.sections.length; i++) {
-            html += "<span>This section type is " + json.sections[i].type + " </span><br>";
-            console.log(json.sections[i]);
-        }
-        wrapper.innerHTML = html;
-        console.log(json);
-    });
+                var section = json.sections[i];
+
+                if (section.type == "hero") {
+
+                    html += "<div id=\"hero\">" +
+                            "<h1 id=\"heroHeader\">" + section.headline + "</h1>" +
+                            "<h3 id=\"heroSubHeader\">" + section.subHeadLine + "</h3>" +
+                            "<button>Let's Get Started &#9658;</button></div>"
+
+                } else if (section.type == "stats") {
+
+                    html += "<div id=\"stats\"><img src=\"" + section.img + "\">" +
+                            "<span>" + section.content + "</span></div>";
+
+                } else if (section.type == "contentBlock") {
+
+                    html += "<div id=\"contentBlock\">" +
+                            "<h1>" + section.headline + "</h1>" +
+                            "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis eius incidunt quod rem veritatis. Accusantium libero molestiae temporibus! Corporis cupiditate dicta eius ipsum nemo nisi quam quas quia rem.</p></div>";
+
+                } else if (section.type == "cards") {
+
+                    html += "<div id=\"cards\">";
+
+                    for (j = 0; j < section.items[0].length; j++) {
+
+                        var card = section.items[0][j];
+
+                        console.log(card);
+
+                        html += "<div class=\"card\">" +
+                                "<img src=\"" + card.img + "\">" +
+                                "<h3>" + card.headline + "</h3>" +
+                                "<p>" + card.content + "</p>" +
+                                "<button><a href=\"" + card.cta.url + "\">" + card.cta.content + " &#9658;</a></button></div>"
+                    }
+
+                    html += "</div>";
+
+                } else if (section.type == "info") {
+
+                    html += "<footer><span>" + section.content + "</span></footer>";
+
+                }
+            }
+            pageContent.innerHTML = html;
+        });
+    } else if (response.status == 500) {
+        pageContent.innerHTML = "<p>Error 500</p>" +
+                                "<a href=\"#\" onclick=\"window.location.reload(true);\">Try Again </a>";
+    }
 });
